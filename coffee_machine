@@ -57,7 +57,7 @@ void display_menu() {
         break;
     case 3:
         printf("Exiting\n");
-        exit(0);
+        break;
     default:
         printf("Invalid choice, try again\n");
     }
@@ -65,24 +65,24 @@ void display_menu() {
 
 void order_coffee() {
     while (1) {
-        printf("\n Available coffees: \n");
+        printf("\n available coffees: \n");
         if (coffee_beans >= espresso_beans && water >= espresso_water) {
-            printf("1. Espresso (%.2f AED)\n", espresso_price);
+            printf("espresso is %f \n", espresso_price);
         }
         else {
-            printf("1.espresso is unavailable\n");
+            printf("espresso is unavailable\n");
         }
         if (coffee_beans >= cappucino_beans && water >= cappucino_water && milk >= cappucino_milk) {
-            printf("2. cappuccino (%.2f AED)\n", cappucino_price);
+            printf("cappuccino is %f \n", cappucino_price);
         }
         else {
-            printf("2.cappuccino is unavailable\n");
+            printf("cappuccino is unavailable\n");
         }
         if (coffee_beans >= mocha_beans && water >= mocha_water && milk >= mocha_milk && chocolate_syrup >= mocha_choco_syrup) {
-            printf("3. mocha (%.2f AED)\n", mocha_price);
+            printf(" mocha is %f \n", mocha_price);
         }
         else {
-            printf("3.mocha is unavailable\n");
+            printf("mocha is unavailable\n");
         }
 
         int choice;
@@ -92,6 +92,9 @@ void order_coffee() {
         if (choice == 0) {
             break;
         }
+    }
+}
+    
+
 
     
-}
