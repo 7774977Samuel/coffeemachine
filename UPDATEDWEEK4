@@ -1,0 +1,198 @@
+#include <stdio.h>
+#include <math.h>
+
+#define espresso_beans 8
+#define cappucino_beans 8
+#define mocha_beans 8
+#define espresso_water 30
+#define cappucino_water 30
+#define mocha_water 39
+#define cappucino_milk 70
+#define mocha_milk 160
+#define mocha_choco_syrup 30
+#define espresso_price 3.5
+#define cappucino_price 4.5
+#define mocha_price 5.5
+#define adminpass "test1"
+#define bean_thresh 50
+#define water_thresh 200
+#define milk_thresh 100
+#define syrup_thresh 50
+
+double total_amount = 0.0;
+
+
+void display_menu();
+void order_coffee();
+void admin_mode();
+
+int main() {
+    while (1) {
+        display_menu();
+    }
+
+    return 0;
+}
+
+void display_menu() {
+    printf("\n Coffee maker \n");
+    printf("1. Order a coffee\n");
+    printf("2. Admin mode\n");
+    printf("3. Exit\n");
+
+    int choice;
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+    case 1:
+        order_coffee();
+        break;
+    case 2:
+        admin_mode();
+        break;
+    case 3:
+        printf("Exiting\n");
+        break;
+    default:
+        printf("Invalid choice, try again\n");
+    }
+}
+
+void order_coffee() {
+    while (1) {
+        printf("\n available coffees: \n");
+        if ( espresso_beans > bean_thresh &&  espresso_water > water_thresh) {
+            printf("1.espresso is %f \n", espresso_price);
+        }
+        else {
+            printf("1.espresso is unavailable\n");
+        }
+        if (cappucino_beans > bean_thresh &&  cappucino_water > water_thresh && cappucino_milk > milk_thresh) {
+            printf("2.cappuccino is %f \n", cappucino_price);
+        }
+        else {
+            printf("cappuccino is unavailable\n");
+        }
+        if (mocha_beans > bean_thresh && mocha_water > water_thresh && mocha_milk > milk_thresh && mocha_choco_syrup > syrup_thresh) {
+            printf("3. mocha is %f \n", mocha_price);
+        }
+        else {
+            printf("mocha is unavailable\n");
+        }
+
+        int choice;
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+
+        if (choice == 0) {
+            break;
+        }
+
+
+void admin_mode(){
+    char pass;
+    printf("Enter Admin Pass: ");
+    scanf("%s", pass);
+
+    //if(pass != adminpass){
+    //printf("pass is incorrect");
+    //}
+    
+ 
+    printf("Admin Mode\n");
+    printf("Display ingredient quantity\n");
+    printf("Replenish ingredients\n");
+    printf("Change coffee price\n");
+    printf("Exit\n");
+    
+        
+    int choice;
+    printf("enter your choice: ");
+    scanf("%d", &choice);
+        
+    switch(choice){
+            
+        case 1:
+        printf("Ingredients quantity\n");
+        printf("Espresso beans(in grams):%d \n", espresso_beans);
+        printf("Cappucino beans(in grams):%d \n",cappucino_beans);
+        printf("Mocha beans(in grams):%d \n",mocha_beans);
+        printf("Espresso water(in ml):%d \n",espresso_water);
+        printf("Cappucino water(in ml):%d \n", cappucino_water);
+        printf("Mocha water(in ml):%d \n", mocha_water);
+        printf("cappucino milk(in ml):%d \n", cappucino_milk);
+        printf("mocha milk(in ml):%d \n", mocha_milk);
+        printf("mocha chocolate syrup(in ml):%d \n" ,mocha_choco_syrup);
+        break;
+            
+        case 2:
+            //replenish_ingredients();
+        break;
+            
+        case 3:
+        change_price();
+        break;
+            
+        case 4:
+        break;
+            
+        default:
+        printf("Error");
+            
+        }
+    }
+    
+
+ 
+ void replenish_ingredients(){
+     
+     
+     
+     
+ }
+ 
+ 
+ void change_price(){
+     
+     printf("current prices\n");
+     printf("1.Espresso price is: %2f \n" ,espresso_price);
+     printf("cappucino price is: %2f \n" ,cappucino_price);
+     printf("mocha price is:  %2f  \n",mocha_price);
+     
+     int choice1;
+     double new_espresso_price;
+     double new_cappucino_price;
+     double new_mocha_price;
+     
+     printf("Enter which price to be changed: ");
+     scanf("%d", choice1);
+     
+     switch(choice1){
+         case 1:
+         printf("Enter new price for espresso: ");
+         scanf("%d" ,new_espresso_price);
+         new_espresso_price = espresso_price;
+         break;
+         
+        case 2:
+        printf("Enter new price for cappucino: ");
+        scanf("%d" ,new_cappucino_price);
+        new_cappucino_price = cappucino_price;
+        break;
+        
+        case 3:
+        printf("Enter new price for mocha: ");
+        scanf("%d" ,new_mocha_price);
+        new_mocha_price = mocha_price;
+        break;
+         
+        default:
+        printf("Invalid");
+        return;
+         
+     }
+ }
+ 
+ 
